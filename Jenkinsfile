@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clonar el Repositorio'){
             steps {
-                git branch: 'main', credentialsId: 'git-jenkins', url: 'https://github.com/eulicerzapata/proyecto-micro.git'
+                git branch: 'main', credentialsId: 'git-jenkins', url: 'https://github.com/jesussegura45/jenkins3.git'
             }
         }
         stage('Construir imagen con Docker'){
@@ -39,7 +39,7 @@ pipeline {
             emailext (
                 subject: "Estado del build: ${currentBuild.currentResult}",
                 body: "Se ha completado el build. Puede detallar en: ${env.BUILD_URL}",
-                to: "eulicer.zapata@est.iudigital.edu.co",
+                to: "jesus.segura@est.iudigital.edu.co",
                 from: "jenkins@iudigital.edu.co"
             )
         }
